@@ -1,0 +1,66 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+//#include"listaEncHeterogenea.h"
+#include"tipoDaLista.h"
+
+int main(){
+
+    printf("\n\n\tINICIANDO ALUNO\n\n");
+    Aluno_t* aluno1;
+    Aluno_t* aluno2;
+    Aluno_t* aluno3;
+    Aluno_t* aluno4;
+   
+    aluno1 = iniciaAluno_Aluno("ELder",202101,9.8);
+    aluno2 = iniciaAluno_Aluno("Neymar",202102,5);
+    aluno3 = iniciaAluno_Aluno("Eu Com outro Nome",202103,0.1);
+    aluno4 = iniciaAluno_Aluno("Sem nome",202104,6.24);
+    
+    char* nome=_retornaNome_Aluno(aluno1);
+    int mat=_retornaMatricula_Aluno(aluno1);
+    float cr=_retornaCR_Aluno(aluno1);
+    printf("\nNOME:%s\n",nome);
+    printf("\nMAT:%d\n",mat);
+    printf("\nCR:%0.2f\n",cr);
+
+    imprime_Aluno(aluno1);
+    imprime_Aluno(aluno2);
+    imprime_Aluno(aluno3);
+    imprime_Aluno(aluno4);
+
+    libera_Aluno(aluno1);
+    libera_Aluno(aluno2);
+    libera_Aluno(aluno3);
+    libera_Aluno(aluno4);
+
+    printf("\n\n\tINICIANDO PROFESSOR\n\n");
+    Professor_t* professor1;
+    Professor_t* professor2;
+    Professor_t* professor3;
+    Professor_t* professor4;
+   
+    professor1 = iniciaProfessor_Professor("professor1",202101,21001.5);
+    professor2 = iniciaProfessor_Professor("professor2",202102,875.5);
+    professor3 = iniciaProfessor_Professor("professor3",202103,8456.03);
+    professor4 = iniciaProfessor_Professor("professor4",202104,2100.5);
+
+    char* nome1=_retornaNome_Professor(professor1);
+    int siape=_retornaSiape_Professor(professor1);
+    float salario = _retornaSalario_Professor(professor1);
+    printf("\nNOME:%s\n",nome1);
+    printf("\nsiape:%d\n",siape);
+    printf("\nsalario:%0.2f\n",salario);
+
+    imprime_Professor(professor1);
+    imprime_Professor(professor2);
+    imprime_Professor(professor3);
+    imprime_Professor(professor4);
+
+    libera_Professor(professor1);
+    libera_Professor(professor2);
+    libera_Professor(professor3);
+    libera_Professor(professor4);
+
+    return 0;
+}
