@@ -13,4 +13,9 @@ tarefa.o: tarefa.c
 	gcc -c tarefa.c
 
 clean:
-	rm -rf *.o *~ trabalho
+	rm -rf *.o *~ rodador
+
+run:
+	./rodador
+valgrind:
+	valgrind ./rodador

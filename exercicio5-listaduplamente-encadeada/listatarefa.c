@@ -92,15 +92,20 @@ Celula* retiraDaLista(Celula* prim_celula,int posicao){
   if(prim_celula == NULL) return NULL;
   //lista primeiro
   if(posicao == 0){
+  //if()
     celula_aux = prim_celula->prox;
     celula_aux->ant = NULL;
     free(prim_celula);
     return celula_aux;
   }
-
+  
   //lista normal
   celula_aux = devolveElem_NaPosicao(prim_celula,posicao);
   celula_aux->ant->prox = celula_aux->prox;
+  
+  if(celula_aux->prox != NULL){//ultimo elemento
+    celula_aux->prox->ant = celula_aux->ant;
+  }
   free(celula_aux);
   return prim_celula;
 
@@ -109,11 +114,14 @@ Celula* retiraDaLista(Celula* prim_celula,int posicao){
 /*****************************************************************/
 
 void liberaLista(Celula* prim_celula){
-  int i=0,qtd_elem = DevolveQuantidadeElemento(prim_celula);
-  
-  for(i=(qtd_elem-1);i>0;i--){
-    retiraDaLista(prim_celula,i);
+  Celula* celula_aux = prim_celula;
+  Celula* celula_aux2;
+  while(celula_aux != NULL){
+    celula_aux2 = celula_aux->prox;
+    free(celula_aux);
+    celula_aux = celula_aux2;
   }
+
 }
 
 /*****************************************************************/

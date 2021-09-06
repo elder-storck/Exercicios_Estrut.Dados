@@ -8,6 +8,8 @@ typedef struct aluno Aluno_t;
 typedef struct professor professor_t
 */
 
+#define NomeTad "tipoDaLista.c"
+
 struct professor{
     char* nome;
     int siape; //matricula
@@ -22,7 +24,7 @@ struct aluno{
 Aluno_t* iniciaAluno_Aluno(char* nome,int matricula,float cr){
     Aluno_t* aluno = (Aluno_t*)malloc(sizeof(Aluno_t));
     if(aluno == NULL){
-        printf("\n\n\tErro ao Alocar Aluno\n\n");
+        printf("\n\n\tErro em %s:\nAo Alocar Aluno\n\n",NomeTad);
         exit(1);
     }
     aluno->nome = strdup(nome);
@@ -40,7 +42,7 @@ char* _retornaNome_Aluno(Aluno_t* aluno){
     return aluno->nome;
 }
 void imprime_Aluno(Aluno_t* aluno){
-    printf("Aluno:%s ,Matricula:%d ,Cr:%0.2f\n",aluno->nome,aluno->matricula,aluno->cr);
+    printf("Aluno:%s ,Matricula:%d\n",aluno->nome,aluno->matricula);
 }
 void libera_Aluno(Aluno_t* aluno){
     free(aluno->nome);
